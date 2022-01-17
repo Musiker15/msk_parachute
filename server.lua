@@ -40,14 +40,14 @@ AddEventHandler('esx_extraitems:setparachute', function(resource)
 end)
 
 ---- GitHub Updater ----
+function GetCurrentVersion()
+	return GetResourceMetadata( GetCurrentResourceName(), "version" )
+end
+
+local CurrentVersion = GetCurrentVersion()
+local resourceName = "^4["..GetCurrentResourceName().."]^0"
+
 if Config.VersionChecker then
-	function GetCurrentVersion()
-		return GetResourceMetadata( GetCurrentResourceName(), "version" )
-	end
-
-	local CurrentVersion = GetCurrentVersion()
-	local resourceName = "^4["..GetCurrentResourceName().."]^0"
-
 	PerformHttpRequest('https://raw.githubusercontent.com/Musiker15/esx_parachute/main/VERSION', function(Error, NewestVersion, Header)
 		print("###############################")
     	if CurrentVersion == NewestVersion then
@@ -60,6 +60,6 @@ if Config.VersionChecker then
 	end)
 else
 	print("###############################")
-	print(resourceName .. '^2 ✓ Resource started^0 - ^5Current Version: ^2' .. CurrentVersion .. '^0')
+	print(resourceName .. '^2 ✓ Resource loaded^0')
 	print("###############################")
 end
