@@ -31,6 +31,14 @@ ESX.RegisterUsableItem('noparachute', function(source)
   	end
 end)
 
+RegisterServerEvent("esx_extraitems:setparachute")
+AddEventHandler('esx_extraitems:setparachute', function(resource)
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.addWeapon('GADGET_PARACHUTE', 1)
+	xPlayer.addInventoryItem("noparachute", 1)
+end)
+
 ---- GitHub Updater ----
 if Config.VersionChecker then
 	function GetCurrentVersion()

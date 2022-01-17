@@ -32,3 +32,15 @@ AddEventHandler('esx_extraitems:delparachute', function()
 		end  
 	end)
 end)
+
+Citizen.CreateThread(function()
+    while true do
+		Citizen.Wait(0)
+       	local playerPed = PlayerPedId()
+
+    	if IsPedInAnyHeli(playerPed) or IsPedInAnyPlane(playerPed) then
+			TriggerServerEvent('esx_extraitems:setparachute')
+            GiveWeaponToPed(GetPlayerPed(-1), GetHashKey("GADGET_PARACHUTE"), true)
+        end
+    end
+end)
