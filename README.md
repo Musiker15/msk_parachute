@@ -1,2 +1,22 @@
 # esx_parachute
- FiveM Script - Usable Parachute
+FiveM Script - Usable Parachute
+
+**Forum:** *Soon...*
+
+## Description
+* You can use the `parachute` Item, then you get `noparachute` Item and a Bag will be added to your Ped
+* If you use `noparachute` Item then then the Bag will be removed from your Ped an you get the `parachute` Item if you already have the Weapon `GADGET_PARACHUTE` on your Ped
+
+## Config
+```lua
+Config = {}
+Config.Locale = 'de'
+
+Config.VersionChecker = false
+```
+
+## Requirements
+* ESX 1.2 (https://github.com/esx-framework/es_extended/releases/tag/v1-final)
+
+## License
+**GNU General Public License v3.0**
