@@ -11,26 +11,28 @@ RegisterNetEvent('esx_parachute:getparachute')
 AddEventHandler('esx_parachute:getparachute', function()
 	local playerPed = PlayerPedId()
 
-	TriggerEvent('skinchanger:getSkin', function(skin)
-		if skin.sex == 0 then  
-		  SetPedComponentVariation (playerPed, 5, 63, 0)
-		else  
-		  SetPedComponentVariation (playerPed, 5, 63, 0)
-		end  
-	end)
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+        if skin.bags_1 ~= 63 then
+            TriggerEvent('skinchanger:change', "bags_1", 63)
+            TriggerEvent('skinchanger:change', "bags_2", 0)
+            TriggerEvent('skinchanger:getSkin', function(skin)
+                TriggerServerEvent('esx_skin:save', skin)
+            end)
+        end
+    end)
 end)
 
 RegisterNetEvent('esx_parachute:delparachute')
 AddEventHandler('esx_parachute:delparachute', function()
 	local playerPed = PlayerPedId()
 
-	TriggerEvent('skinchanger:getSkin', function(skin)
-		if skin.sex == 0 then  
-		  SetPedComponentVariation (playerPed, 5, 0, 0)
-		else  
-		  SetPedComponentVariation (playerPed, 5, 0, 0)
-		end  
-	end)
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+        TriggerEvent('skinchanger:change', "bags_1", 0)
+        TriggerEvent('skinchanger:change', "bags_2", 0)
+        TriggerEvent('skinchanger:getSkin', function(skin)
+            TriggerServerEvent('esx_skin:save', skin)
+        end)
+    end)
 end)
 
 Citizen.CreateThread(function()
