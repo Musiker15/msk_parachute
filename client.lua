@@ -40,7 +40,6 @@ Citizen.CreateThread(function()
 
     	if IsPedInAnyHeli(playerPed) or IsPedInAnyPlane(playerPed) then
 			TriggerServerEvent('esx_parachute:setparachute')
-            GiveWeaponToPed(GetPlayerPed(-1), GetHashKey("GADGET_PARACHUTE"), true)
         end
     end
 end)
