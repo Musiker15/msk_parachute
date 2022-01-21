@@ -6,7 +6,7 @@ ESX.RegisterUsableItem('parachute', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	if not xPlayer.hasWeapon("GADGET_PARACHUTE") then
-		TriggerClientEvent('esx_extraitems:getparachute', source)
+		TriggerClientEvent('esx_parachute:getparachute', source)
 		xPlayer.addWeapon('GADGET_PARACHUTE', 1)
 		xPlayer.removeInventoryItem("parachute", 1)
 		xPlayer.addInventoryItem("noparachute", 1)
@@ -20,19 +20,19 @@ ESX.RegisterUsableItem('noparachute', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	if xPlayer.hasWeapon("GADGET_PARACHUTE") then
-		TriggerClientEvent("esx_extraitems:delparachute", source)
+		TriggerClientEvent("esx_parachute:delparachute", source)
 		xPlayer.removeWeapon('GADGET_PARACHUTE', 1)
 		xPlayer.addInventoryItem("parachute", 1)
 		xPlayer.removeInventoryItem("noparachute", 1)
 		xPlayer.showNotification(_U('used_noparachute'))
 	elseif not xPlayer.hasWeapon("GADGET_PARACHUTE") then
-		TriggerClientEvent("esx_extraitems:delparachute", source)
+		TriggerClientEvent("esx_parachute:delparachute", source)
 		xPlayer.removeInventoryItem("noparachute", 1)
   	end
 end)
 
-RegisterServerEvent("esx_extraitems:setparachute")
-AddEventHandler('esx_extraitems:setparachute', function(resource)
+RegisterServerEvent("esx_parachute:setparachute")
+AddEventHandler('esx_parachute:setparachute', function(resource)
     local xPlayer = ESX.GetPlayerFromId(source)
 
 	xPlayer.addWeapon('GADGET_PARACHUTE', 1)

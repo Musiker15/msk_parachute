@@ -7,8 +7,8 @@ Citizen.CreateThread(function()
 end)
 
 -- Parachute
-RegisterNetEvent('esx_extraitems:getparachute')
-AddEventHandler('esx_extraitems:getparachute', function()
+RegisterNetEvent('esx_parachute:getparachute')
+AddEventHandler('esx_parachute:getparachute', function()
 	local playerPed = PlayerPedId()
 
 	TriggerEvent('skinchanger:getSkin', function(skin)
@@ -20,8 +20,8 @@ AddEventHandler('esx_extraitems:getparachute', function()
 	end)
 end)
 
-RegisterNetEvent('esx_extraitems:delparachute')
-AddEventHandler('esx_extraitems:delparachute', function()
+RegisterNetEvent('esx_parachute:delparachute')
+AddEventHandler('esx_parachute:delparachute', function()
 	local playerPed = PlayerPedId()
 
 	TriggerEvent('skinchanger:getSkin', function(skin)
@@ -39,7 +39,7 @@ Citizen.CreateThread(function()
        	local playerPed = PlayerPedId()
 
     	if IsPedInAnyHeli(playerPed) or IsPedInAnyPlane(playerPed) then
-			TriggerServerEvent('esx_extraitems:setparachute')
+			TriggerServerEvent('esx_parachute:setparachute')
             GiveWeaponToPed(GetPlayerPed(-1), GetHashKey("GADGET_PARACHUTE"), true)
         end
     end
