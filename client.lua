@@ -9,8 +9,6 @@ end)
 -- Parachute
 RegisterNetEvent('esx_parachute:getparachute')
 AddEventHandler('esx_parachute:getparachute', function()
-	local playerPed = PlayerPedId()
-
 	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
         if skin.bags_1 ~= 63 then
             TriggerEvent('skinchanger:change', "bags_1", 63)
@@ -24,14 +22,14 @@ end)
 
 RegisterNetEvent('esx_parachute:delparachute')
 AddEventHandler('esx_parachute:delparachute', function()
-	local playerPed = PlayerPedId()
-
 	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
-        TriggerEvent('skinchanger:change', "bags_1", 0)
-        TriggerEvent('skinchanger:change', "bags_2", 0)
-        TriggerEvent('skinchanger:getSkin', function(skin)
-            TriggerServerEvent('esx_skin:save', skin)
-        end)
+        if skin.bags_1 ~= 82 then
+            TriggerEvent('skinchanger:change', "bags_1", 0)
+            TriggerEvent('skinchanger:change', "bags_2", 0)
+            TriggerEvent('skinchanger:getSkin', function(skin)
+                TriggerServerEvent('esx_skin:save', skin)
+            end)
+        end
     end)
 end)
 

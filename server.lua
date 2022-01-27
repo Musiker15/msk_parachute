@@ -5,11 +5,11 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 ESX.RegisterUsableItem('parachute', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	if not xPlayer.hasWeapon("GADGET_PARACHUTE") then
+	if not xPlayer.hasWeapon('GADGET_PARACHUTE') then
 		TriggerClientEvent('esx_parachute:getparachute', source)
 		xPlayer.addWeapon('GADGET_PARACHUTE', 1)
-		xPlayer.removeInventoryItem("parachute", 1)
-		xPlayer.addInventoryItem("noparachute", 1)
+		xPlayer.removeInventoryItem('parachute', 1)
+		xPlayer.addInventoryItem('noparachute', 1)
 		xPlayer.showNotification(_U('used_parachute'))
 	else
 		xPlayer.showNotification(_U('has_parachute'))
@@ -19,24 +19,40 @@ end)
 ESX.RegisterUsableItem('noparachute', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	if xPlayer.hasWeapon("GADGET_PARACHUTE") then
+	if xPlayer.hasWeapon('GADGET_PARACHUTE') then
 		TriggerClientEvent("esx_parachute:delparachute", source)
 		xPlayer.removeWeapon('GADGET_PARACHUTE', 1)
-		xPlayer.addInventoryItem("parachute", 1)
-		xPlayer.removeInventoryItem("noparachute", 1)
+		xPlayer.addInventoryItem('parachute', 1)
+		xPlayer.removeInventoryItem('noparachute', 1)
 		xPlayer.showNotification(_U('used_noparachute'))
-	elseif not xPlayer.hasWeapon("GADGET_PARACHUTE") then
+	elseif not xPlayer.hasWeapon('GADGET_PARACHUTE') then
 		TriggerClientEvent("esx_parachute:delparachute", source)
-		xPlayer.removeInventoryItem("noparachute", 1)
+		xPlayer.removeInventoryItem('noparachute', 1)
   	end
 end)
 
 RegisterServerEvent("esx_parachute:setparachute")
 AddEventHandler('esx_parachute:setparachute', function(resource)
     local xPlayer = ESX.GetPlayerFromId(source)
+	local hasItem = xPlayer.getInventoryItem('noparachute')
+	local hasItem2 = xPlayer.getInventoryItem('parachute')
 
-	xPlayer.addWeapon('GADGET_PARACHUTE', 1)
-	xPlayer.addInventoryItem("noparachute", 1)
+	if not xPlayer.hasWeapon('GADGET_PARACHUTE') and hasItem.count == 0 then
+		TriggerClientEvent('esx_parachute:getparachute', source)
+		xPlayer.addWeapon('GADGET_PARACHUTE', 1)
+		xPlayer.addInventoryItem('noparachute', 1)
+		if hasItem2.count == 1 then
+			xPlayer.removeInventoryItem('parachute', 1)
+		end
+	elseif xPlayer.hasWeapon('GADGET_PARACHUTE') and hasItem.count == 0 then
+		xPlayer.removeWeapon('GADGET_PARACHUTE', 1)
+		TriggerClientEvent('esx_parachute:getparachute', source)
+		xPlayer.addWeapon('GADGET_PARACHUTE', 1)
+		xPlayer.addInventoryItem('noparachute', 1)
+		if hasItem2.count == 1 then
+			xPlayer.removeInventoryItem('parachute', 1)
+		end
+	end
 end)
 
 ---- GitHub Updater ----
