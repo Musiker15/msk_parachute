@@ -12,8 +12,7 @@ FiveM Script - Usable Parachute
 ```lua
 Config = {}
 Config.Locale = 'de'
-
-Config.VersionChecker = false
+Config.VersionChecker = true
 ```
 
 ## Requirements
