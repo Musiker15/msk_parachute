@@ -1,7 +1,7 @@
 # esx_parachute
 FiveM Script - Usable Parachute
 
-**Forum:** *Soon...*
+**Forum:** https://forum.cfx.re/t/release-esx-usable-parachute-item/4808933
 
 ## Description
 * You can use the `parachute` Item, then you get `noparachute` Item and a Bag will be added to your Ped
