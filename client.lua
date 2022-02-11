@@ -33,6 +33,7 @@ AddEventHandler('esx_parachute:delparachute', function()
     end)
 end)
 
+if Config.GiveParachute = true then
 Citizen.CreateThread(function()
     while true do
 		Citizen.Wait(0)
@@ -43,3 +44,5 @@ Citizen.CreateThread(function()
         end
     end
 end)
+else
+end
