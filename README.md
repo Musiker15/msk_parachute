@@ -3,6 +3,8 @@ FiveM Script - Usable Parachute
 
 **Forum:** https://forum.cfx.re/t/release-esx-usable-parachute-item/4808933
 
+**Discord Support:** https://discord.gg/5hHSBRHvJE
+
 ## Description
 * You can use the `parachute` Item, then you get `noparachute` Item and a Bag will be added to your Ped
 * If you use `noparachute` Item then then the Bag will be removed from your Ped an you get the `parachute` Item if you already have the Weapon `GADGET_PARACHUTE` on your Ped
