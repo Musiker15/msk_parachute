@@ -13,13 +13,17 @@ FiveM Script - Usable Parachute
 ## Config
 ```lua
 Config = {}
+----------------------------------------------------------------
 Config.Locale = 'de'
 Config.VersionChecker = true
+----------------------------------------------------------------
+Config.GiveParachute = true  -- Set to true if you want ti give a Parachute when entering a Helicopter or Plane
 ```
 
 ## Requirements
-* ESX 1.2 (https://github.com/esx-framework/es_extended/releases/tag/v1-final)
-* Should work with ESX Legacy too but I didn't test it.
+* ESX 1.2 (v1-final) // Legacy
+* esx_skin
+* skinchanger
 
 ## License
 **GNU General Public License v3.0**
