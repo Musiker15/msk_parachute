@@ -26,7 +26,7 @@ Config.GiveParachute = true  -- Set to true if you want ti give a Parachute when
 * skinchanger
 
 ## My other Scripts
-* [https://forum.cfx.re/t/release-esx-armor-script-usable-armor-vests-status-will-be-saved-in-database-and-restore-after-relog/4812243](Armor)
+* [[ESX] Armor](https://forum.cfx.re/t/release-esx-armor-script-usable-armor-vests-status-will-be-saved-in-database-and-restore-after-relog/4812243)
 * https://forum.cfx.re/t/release-esx-weapon-ammunition-with-clips-components-tints/4793783
 * https://forum.cfx.re/t/release-esx-qbcore-usable-simcard/4847008
 * https://forum.cfx.re/t/release-esx-msk-shopsystem-nativeui-database-feature/4853593
