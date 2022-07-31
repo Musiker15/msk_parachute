@@ -38,9 +38,13 @@ if Config.GiveParachute then
         while true do
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
+            local isInHeliOrPlane = false
 
-            if IsPedInAnyHeli(playerPed) or IsPedInAnyPlane(playerPed) then
+            if (IsPedInAnyHeli(playerPed) or IsPedInAnyPlane(playerPed)) and not isInHeliOrPlane then
+                isInHeliOrPlane = true
                 TriggerServerEvent('esx_parachute:setparachute')
+            else
+                isInHeliOrPlane = false
             end
         end
     end)
