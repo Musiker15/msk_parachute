@@ -1,4 +1,4 @@
-# esx_parachute
+# msk_parachute
 FiveM Script - Usable Parachute
 
 **Forum:** https://forum.cfx.re/t/release-esx-usable-parachute-item/4808933
