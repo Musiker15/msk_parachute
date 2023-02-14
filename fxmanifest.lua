@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Musiker15'
 description 'ESX Parachute'
-version '1.4'
+version '1.4.1'
 
 shared_scripts {
 	'@es_extended/locale.lua',
